@@ -1,0 +1,4 @@
+http_proxy=http://proxy.fsh.hdwa.health.wa.gov.au:8080
+https_proxy=http://proxy.fsh.hdwa.health.wa.gov.au:8080
+
+ORCID_TOKEN="4fa68a8f-62c5-4573-9e2e-c17a0f308a60"
