@@ -137,12 +137,11 @@ Useful links:
 \code{\link{decode_classical_mac}}, \code{\link{infer_haplotypes}}
 }
 \author{
-\strong{Maintainer}: Fredrick Mobegi \email{fredrick.mobegi@health.wa.gov.au} (GitHub: fmobegi)
+\strong{Maintainer}: Fredrick Mobegi \email{fredrick.mobegi@health.wa.gov.au} (fmobegi)
 
 Authors:
 \itemize{
-  \item Fredrick Mobegi \email{fredrick.mobegi@health.wa.gov.au} (GitHub: fmobegi)
-  \item Hoiley Sham \email{24409393@student.uwa.edu.au} (GitHub: h-sham)
+  \item Hoiley Sham \email{24409393@student.uwa.edu.au} (h-sham)
 }
 
 }

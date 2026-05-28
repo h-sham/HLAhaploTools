@@ -81,7 +81,7 @@ em_algorithm <- function(df_raw, collapse = "~", quiet = FALSE) {
 
    locus_cols <- names(hap_matrix)
 
-   hap_df <- hap_matrix %>%
+   em_df <- hap_matrix %>%
       dplyr::mutate(EM_Probability = em$hap.prob) %>%
       tidyr::unite("Haplotype", dplyr::all_of(locus_cols), sep = collapse, na.rm = TRUE) %>%
       dplyr::group_by(Haplotype) %>%
@@ -93,8 +93,8 @@ em_algorithm <- function(df_raw, collapse = "~", quiet = FALSE) {
       dplyr::arrange(dplyr::desc(EM_Probability), Haplotype) %>%
       dplyr::distinct()
 
-   hap_df <- hap_df %>%
+   em_df <- em_df %>%
       dplyr::select(EM_Probability, Frequency, Haplotype)
 
-   return(hap_df)
+   return(em_df)
 }

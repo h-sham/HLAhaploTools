@@ -260,6 +260,15 @@ HLAhaploTools <- function(filepath,
       print(plot_top_haplotypes(haplotype_results$haplotype_frequencies, quiet = quiet))
    }
 
+   # Step 11: Comparison EM with segregation
+   if (!quiet) message("\n Step 10: Comparison Analysis")
+   if (!is.null(haplotype_results) && !is.null(df_segregation)) {
+      if (!quiet) {
+         message(" Comparing EM to Segregation")
+         compare_df <- compare_EM_to_segregation(em_df = haplotype_results, segregation_df = df_segregation)
+      }
+   }
+
    # Return results
    result_df <- list(
       typing_data = df_decoded,

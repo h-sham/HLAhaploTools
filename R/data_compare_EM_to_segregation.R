@@ -8,8 +8,8 @@
 #' The output includes match statistics, match quality categories, and
 #' the corresponding segregation haplotype for each EM haplotype.
 #'
-#' @param hap_df A data frame or tibble containing EM-estimated haplotypes. .
-#' @param hap_results A data frame or tibble containing segregation analysis
+#' @param em_df A data frame or tibble containing EM-estimated haplotypes. .
+#' @param segregation_df A data frame or tibble containing segregation analysis
 #'   results. tibble 2 contains all 4 haplotype strings regardless inherited
 #'   or not.
 #' @param collapse Character string used to separate each alleles.
@@ -21,7 +21,7 @@
 #' @details The function internally parses haplotype strings of the form
 #' `"LOCUS*XX:XX~LOCUS*XX:XX"` into named vectors of 2-field allele calls.
 #'
-#' It requires a global object `hap_results` containing segregation haplotypes
+#' It requires a global object `segregation_df` containing segregation haplotypes
 #' with a column `Allele_string`.
 #'
 #'
@@ -36,7 +36,7 @@
 #' @importFrom utils View
 #'
 #' @export
-compare_EM_to_segregation <- function(hap_df, hap_results, collapse = ", ") {
+compare_EM_to_segregation <- function(em_df, segregation_df, collapse = ", ") {
    parse_haplotype <- function(hap_string) {
       alleles <- stringr::str_split(hap_string, "~")[[1]]
       alleles_2field <- stringr::str_extract(alleles, "^[A-Z0-9]+\\*\\d+:\\d+")
@@ -46,9 +46,9 @@ compare_EM_to_segregation <- function(hap_df, hap_results, collapse = ", ") {
 
    all_comparison <- list()
 
-   for (i in seq_len(nrow(hap_df))) {
-      em_haplotype <- hap_df$Haplotype[i]
-      em_prob <- hap_df$EM_Probability[i]
+   for (i in seq_len(nrow(em_df))) {
+      em_haplotype <- em_df$Haplotype[i]
+      em_prob <- em_df$EM_Probability[i]
       em_map <- parse_haplotype(em_haplotype)
 
       best_match <- list(
@@ -65,8 +65,8 @@ compare_EM_to_segregation <- function(hap_df, hap_results, collapse = ", ") {
          segregation_haplotype = NA
       )
 
-      for (j in seq_len(nrow(hap_results[[2]]))) {
-         sa_haplotype_string <- as.character(hap_results[[2]]$Allele_Strings[j])
+      for (j in seq_len(nrow(segregation_df[[2]]))) {
+         sa_haplotype_string <- as.character(segregation_df[[2]]$Allele_String[j])
          sa_map <- parse_haplotype(sa_haplotype_string)
 
          common_loci <- intersect(names(em_map), names(sa_map))

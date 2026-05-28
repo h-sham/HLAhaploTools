@@ -324,8 +324,6 @@ compute_hla_segregation <- function(hped, collapse = "~", verbose = TRUE) {
             segregation_results[[fam]] <- dplyr::bind_rows(fam_segregation_list)
 
             allele_string_results[[fam]] <- tibble::tibble(
-               FAMILY_ID = fam,
-               Haplotype = c("A", "B", "C", "D"),
                Allele_String = c(
                   make_string(father_haps$A), make_string(father_haps$B),
                   make_string(mother_haps$C), make_string(mother_haps$D)

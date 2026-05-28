@@ -4,12 +4,12 @@
 \alias{compare_EM_to_segregation}
 \title{Compare EM Algorithm Haplotypes with Segregation Analysis}
 \usage{
-compare_EM_to_segregation(hap_df, hap_results, collapse = ", ")
+compare_EM_to_segregation(em_df, segregation_df, collapse = ", ")
 }
 \arguments{
-\item{hap_df}{A data frame or tibble containing EM-estimated haplotypes. .}
+\item{em_df}{A data frame or tibble containing EM-estimated haplotypes. .}
 
-\item{hap_results}{A data frame or tibble containing segregation analysis
+\item{segregation_df}{A data frame or tibble containing segregation analysis
 results. tibble 2 contains all 4 haplotype strings regardless inherited
 or not.}
 
@@ -33,7 +33,7 @@ the corresponding segregation haplotype for each EM haplotype.
 The function internally parses haplotype strings of the form
 \code{"LOCUS*XX:XX~LOCUS*XX:XX"} into named vectors of 2-field allele calls.
 
-It requires a global object \code{hap_results} containing segregation haplotypes
+It requires a global object \code{segregation_df} containing segregation haplotypes
 with a column \code{Allele_string}.
 }
 \note{
