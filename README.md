@@ -22,34 +22,28 @@ HLAhaploTools is an R package for inference and analysis of extended human leuko
 
 ## Installation
 
-Install the stable release from Bioconductor:
-
-```r
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install("HLAhaploTools")
-```
-
-Install the development version from GitHub:
+Install the current development version from GitHub:
 
 ```r
 # Using pak
 # install.packages("pak")
-pak::pak("fmobegi/HLAhaploTools")
+pak::pak("h-sham/HLAhaploTools")
 
 # Using devtools
 # install.packages("devtools")
-devtools::install_github("fmobegi/HLAhaploTools")
+devtools::install_github("h-sham/HLAhaploTools")
 
 # Using remotes
 # install.packages("remotes")
-remotes::install_github("fmobegi/HLAhaploTools")
+remotes::install_github("h-sham/HLAhaploTools")
 ```
 
 ## Quick start
 
 ```r
 library(HLAhaploTools)
+
+HLAhaploTools("/path/to/input.csv")
 
 # Standardize input column names
 cleaned <- standardize_colnames(raw_hla_data)
@@ -101,7 +95,7 @@ Gene names are case-insensitive.
 
 ## Documentation and support
 
-- Repository: https://github.com/fmobegi/HLAhaploTools
-- Issues: https://github.com/fmobegi/HLAhaploTools/issues
+- Repository: https://github.com/h-sham/HLAhaploTools
+- Issues: https://github.com/h-sham/HLAhaploTools/issues
 
 For full examples and detailed usage, see the package vignettes and help pages after installation.
