@@ -9,7 +9,7 @@
 #' @param quiet Logical. If TRUE, suppresses status messages.
 #'
 #' @return Logical TRUE if data appears to be family data, FALSE otherwise
-#' @keywords internal
+#' @export
 detect_data_type <- function(df, quiet = FALSE) {
    col_names <- colnames(df)
    col_names_lower <- tolower(col_names)
