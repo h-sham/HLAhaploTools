@@ -17,4 +17,3 @@ Logical TRUE if data appears to be family data, FALSE otherwise
 \description{
 Determines whether data appears to be from a family study or regular typing.
 }
-\keyword{internal}
